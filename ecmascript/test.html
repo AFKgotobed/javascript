@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>JavaScript</title>
+</head>
+<body>
+
+123
+
+<script>
+//  //超类型
+// function Person(name, age) {
+//   //实例属性
+//   this.name = name;
+//   this.age = age;
+//   this.friend = ["html", "css"];
+
+//   //初始化原型
+//   if (typeof this.say !== "function") {
+//     Person.prototype.say = function() {
+//       return this.name + this.age;
+//     }
+//   }
+// }
+
+// //子类型
+// function Child() {
+//   //借用构造函数实现继承
+//   Person.call(this, "javascript", 24);
+//   //Person.apply(this, "javascript", 24);
+// }
+
+// //实例
+// var p1 = new Child("javascript", 24);
+
+// console.log(p1.say()); //"javascript24"
+//超类型
+//超类型
+function Person(name, age) {
+  //实例属性
+  this.name = name;
+  this.age = age;
+  this.friend = ["html", "css"];
+
+  //初始化原型
+  if (typeof this.say !== "function") {
+    Person.prototype.say = function() {
+      return this.name + this.age;
+    }
+  }
+}
+
+function Child(name, age) {
+  //实例中属性继承
+  Person.call(this, name, age); //第二次调用构造函数
+}
+
+//原型上属性继承
+Child.prototype = new Person(); //第一次调用构造函数
+
+var p1 = new Child("javascript", 24);
+var p2 = new Child("sin", 20);
+
+console.log(p1.name === p2.name); //false
+console.log(p1.age === p2.age);   //false
+console.log(p1.friend === p2.friend); //false
+console.log(p1.say === p2.say); //true
+console.log(p1.say() === p2.say()); //false
+</script>
+</body>
+</html>
