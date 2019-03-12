@@ -11,64 +11,28 @@
 123
 
 <script>
-//  //超类型
-// function Person(name, age) {
-//   //实例属性
-//   this.name = name;
-//   this.age = age;
-//   this.friend = ["html", "css"];
-
-//   //初始化原型
-//   if (typeof this.say !== "function") {
-//     Person.prototype.say = function() {
-//       return this.name + this.age;
-//     }
-//   }
-// }
-
-// //子类型
-// function Child() {
-//   //借用构造函数实现继承
-//   Person.call(this, "javascript", 24);
-//   //Person.apply(this, "javascript", 24);
-// }
-
-// //实例
-// var p1 = new Child("javascript", 24);
-
-// console.log(p1.say()); //"javascript24"
-//超类型
-//超类型
-function Person(name, age) {
-  //实例属性
-  this.name = name;
-  this.age = age;
-  this.friend = ["html", "css"];
-
-  //初始化原型
-  if (typeof this.say !== "function") {
-    Person.prototype.say = function() {
-      return this.name + this.age;
-    }
+ var person = {
+  name: "javascript",
+  age: 24,
+  friends: ["html", "css"],
+  say: function() {
+    return this.name + this.age;
   }
 }
 
-function Child(name, age) {
-  //实例中属性继承
-  Person.call(this, name, age); //第二次调用构造函数
+//创建一个普通函数
+function fn(o) {
+  //使用的Object () 函数不是必需的, 任何能够返回新对象的函数都可以
+  var clone = Object(o); //通过调用函数创建一个新对象
+  clone.tall = 180;      //以某种方式增强新对象
+  return clone;          //返回新对象
 }
 
-//原型上属性继承
-Child.prototype = new Person(); //第一次调用构造函数
+var p = fn(person);
 
-var p1 = new Child("javascript", 24);
-var p2 = new Child("sin", 20);
-
-console.log(p1.name === p2.name); //false
-console.log(p1.age === p2.age);   //false
-console.log(p1.friend === p2.friend); //false
-console.log(p1.say === p2.say); //true
-console.log(p1.say() === p2.say()); //false
+console.log(p.friends);  
+console.log(p.tall); 
+console.log(p.say());  
 </script>
 </body>
 </html>
