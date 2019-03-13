@@ -11,28 +11,22 @@
 123
 
 <script>
- var person = {
-  name: "javascript",
-  age: 24,
-  friends: ["html", "css"],
-  say: function() {
-    return this.name + this.age;
+var obj1 = {
+  toString: function() {
+    return 'red'
+  }
+}
+var obj2 = {
+  toString: function() {
+    return 'green'
+  },
+  toLocaleString: function() {
+    return 'gray'
   }
 }
 
-//创建一个普通函数
-function fn(o) {
-  //使用的Object () 函数不是必需的, 任何能够返回新对象的函数都可以
-  var clone = Object(o); //通过调用函数创建一个新对象
-  clone.tall = 180;      //以某种方式增强新对象
-  return clone;          //返回新对象
-}
-
-var p = fn(person);
-
-console.log(p.friends);  
-console.log(p.tall); 
-console.log(p.say());  
+var arr2 = [obj1, obj2]
+console.log(arr2.toLocaleString()) //"pink,gray"
 </script>
 </body>
 </html>
