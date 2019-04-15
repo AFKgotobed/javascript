@@ -16,7 +16,6 @@ var time = new Date('Sun Apr 07 2019 18:20:47 GMT+0800 (中国标准时间)');
  * Date.UTC() 方法, 它接受一个表示日期的字符串参数, 返回该日期的毫秒数;
  */
 
-
 // Date.parse() 方法
 var milliseconds1 = Date.parse(new Date());
 console.log(milliseconds1); //当前某一时刻的毫秒数
@@ -26,5 +25,14 @@ console.log(milliseconds2); //NaN
 
 // Date.UTC() 方法
 
+////////////////////////////// 日期对象的内置方法 //////////////////////////////
+/* 1.继承方法
+ */
 
 
+/* 2.格式方法
+ */
+
+ 
+/* 3.组件方法
+ */

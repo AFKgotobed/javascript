@@ -9,8 +9,17 @@
 <body>
 
 <script>
-var milliseconds = Date.now();
-console.log(milliseconds); //NaN
+function fn3(o) {
+  o.color = "red";  // 这个内部变量 o 与外部变量 obj 引用的是同一个对象
+  o = new Object(); // 这个内部变量o与上一行变量o引用了不同的对象，它是函数内部的一个局部变量
+  o.color = "green";
+  console.log(o.color);   //error
+}
+var obj = new Object();
+fn3(obj);
+
+console.log(obj.color); //"red"
+console.log(o.color); //error
 </script>
 </body>
 </html>

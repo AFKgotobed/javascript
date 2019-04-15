@@ -17,9 +17,19 @@ var person = {
   age: 24
 }
 
-// 3.对象属性可以使用字符串的形式; 访问属性时, 属性以字符串的形式放在大括号中;
+// 3.对象属性可以使用字符串的形式; 读取属性时, 属性以字符串的形式放在大括号中;
 var person = {
   "first-name": "javascript",
   "age": 24
 }
 console.log(person["first-name"])
+
+////////////////////////////// Object 对象的内置方法 //////////////////////////////
+
+/* 1.检测方法
+ * typeof 操作符;
+ * Array.isArray() 方法;
+ */
+
+var obj = {};
+console.log(typeof obj) //object
