@@ -8,25 +8,9 @@
 </head>
 <body>
 
-123
-
 <script>
-var obj1 = {
-  toString: function() {
-    return 'red'
-  }
-}
-var obj2 = {
-  toString: function() {
-    return 'green'
-  },
-  toLocaleString: function() {
-    return 'gray'
-  }
-}
-
-var arr2 = [obj1, obj2]
-console.log(arr2.toLocaleString()) //"pink,gray"
+var milliseconds = Date.now();
+console.log(milliseconds); //NaN
 </script>
 </body>
 </html>
